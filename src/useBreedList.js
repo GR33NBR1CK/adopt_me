@@ -28,7 +28,7 @@ function useBreedList(animal) {
         setStatus("loaded");
     }
 
-    return [breedList];
+    return [breedList, status];
 }
 
 export default useBreedList;
