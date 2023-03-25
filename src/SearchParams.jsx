@@ -20,8 +20,9 @@ const searchParams = () => {
 
     const pets = results?.data?.pets ?? [];
     return (
-        <div className="search-params">
+        <div className="my-0 mx-auto w-11/12">
             <form
+                className="p-10 mb-10 rounded-lg bg-gray-200 shadow-lg flex flex-col justify-center items-center"
                 onSubmit={(event) => {
                     event.preventDefault();
                     const formData = new FormData(event.target);
@@ -36,7 +37,7 @@ const searchParams = () => {
                 {adoptedPet ? (
                     <div className="pet image-container">
                         <img
-                            src={adoptedPet?.images[0]}
+                            src={adoptedPet?.images[adoptedPet.activeImage]}
                             alt={adoptedPet?.name}
                         />
                     </div>
@@ -50,6 +51,7 @@ const searchParams = () => {
                 />
                 <label htmlFor="animal">Animal</label>
                 <select
+                    className="search-input"
                     id="animal"
                     value={animal}
                     onChange={(event) => {
@@ -64,14 +66,24 @@ const searchParams = () => {
                 </select>
 
                 <label htmlFor="breed">Breed</label>
-                <select id="breed" disabled={!breeds.length} name="breed">
+                <select
+                    className="search-input grayed-out-disabled"
+                    id="breed"
+                    disabled={!breeds.length}
+                    name="breed"
+                >
                     {breeds.map((breed) => (
                         <option key={breed} value={breed}>
                             {breed}
                         </option>
                     ))}
                 </select>
-                <button type="submit">Submit</button>
+                <button
+                    type="submit"
+                    className="rounded px-6 py-2 text-white hover:opacity-50 border-none bg-orange-500"
+                >
+                    Submit
+                </button>
             </form>
 
             <Results pets={pets} />
