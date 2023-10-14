@@ -17,7 +17,7 @@ const Details = lazy(() => import("./Details"));
 const SearchParams = lazy(() => import("./SearchParams"));
 
 const App = () => {
-    const adoptPet = useState(null);
+    const adoptedPet = useState(null);
     // const [theme, setTheme] = useState("darkMode");
 
     return (
@@ -37,7 +37,7 @@ const App = () => {
                             </div>
                         }
                     >
-                        <AdoptPetContext.Provider value={adoptPet}>
+                        <AdoptPetContext.Provider value={adoptedPet}>
                             <header className="w-full mb-10 text-center p-7 bg-gradient-to-b from-yellow-400 via-orange-500 to-red-500">
                                 <Link
                                     className="text-6xl text-white hover:text-gray-200"

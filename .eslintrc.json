@@ -38,10 +38,7 @@
     },
     "import/resolver": {
       "typescript": {
-        "alwaysTryTypes": [
-          ".js",
-          ".jsx"
-        ]
+        "alwaysTryTypes": true
       }
     },
     "import/parsers": {
