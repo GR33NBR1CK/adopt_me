@@ -1,7 +1,11 @@
-async function fetchSearch({ queryKey }) {
-    const { animal, breed, location } = queryKey[1];
+import {type QueryFunction} from "@tanstack/react-query";
+import {PetAPIResponse} from "./APIResponsesTypes";
+import {type RequestParams} from "./SearchParams";
+
+const fetchSearch: QueryFunction<PetAPIResponse> = async ({ queryKey }) => {
+    const { animal, breed, location } = queryKey[1] as RequestParams;
     const response = await fetch(
-        `http://pets-v2.dev-apis.com/pets?animal=${animal}&location=${location}&breed=${breed}`
+        `https://pets-v2.dev-apis.com/pets?animal=${animal}&location=${location}&breed=${breed}`
     );
 
     if (!response.ok) {

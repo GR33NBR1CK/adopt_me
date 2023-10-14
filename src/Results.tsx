@@ -1,6 +1,13 @@
-import Pet from "./Pet";
+import {FC} from "react";
 
-const Results = ({ pets }) => {
+import Pet from "./Pet";
+import {type Pet as IPet} from "./APIResponsesTypes";
+
+interface ResultsProps {
+    pets: IPet[];
+}
+
+const Results: FC<ResultsProps> = ({ pets }) => {
     return (
         <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
             {!pets.length ? (
@@ -8,13 +15,13 @@ const Results = ({ pets }) => {
             ) : (
                 pets.map((pet) => (
                     <Pet
-                        key={pet.id}
-                        name={pet.name}
-                        animal={pet.animal}
-                        breed={pet.breed}
-                        images={pet.images}
-                        location={`${pet.city}, ${pet.state}`}
-                        id={pet.id}
+                        key={pet?.id}
+                        name={pet?.name}
+                        animal={pet?.animal}
+                        breed={pet?.breed}
+                        images={pet?.images}
+                        location={`${pet?.city}, ${pet?.state}`}
+                        id={pet?.id}
                     />
                 ))
             )}

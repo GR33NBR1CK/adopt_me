@@ -1,9 +1,19 @@
 import { Link } from "react-router-dom";
+import {FC} from "react";
 
-const Pet = ({ name, id, breed, animal, location, images }) => {
-    let hero = images.length
+interface PetProps {
+    name: string;
+    id: number;
+    breed: string;
+    animal: string;
+    location: string;
+    images: string[];
+}
+
+const Pet: FC<PetProps> = ({ name, id, breed, animal, location, images }) => {
+    const hero = images.length
         ? images[0]
-        : "http://pets-images.dev-apis.com/pets/none.jpg";
+        : "https://pets-images.dev-apis.com/pets/none.jpg";
 
     return (
         <Link className="pet relative block" to={`/details/${id}`}>
