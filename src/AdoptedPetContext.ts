@@ -1,7 +1,7 @@
 import { createContext } from "react";
 import {Pet} from "./APIResponsesTypes";
 
-const AdoptPetContext = createContext<[Pet, (adoptedPet: Pet) => void]>([
+const AdoptedPetContext = createContext<[Pet | null, (adoptedPet: Pet) => void]>([
     {
         id: 1337,
         name: "Stefan",
@@ -12,8 +12,7 @@ const AdoptPetContext = createContext<[Pet, (adoptedPet: Pet) => void]>([
         city: "Seattle",
         state: "WA"
     },
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    function setAdoptedPet(adoptedPet: Pet){}
+    function setAdoptedPet(){}
 ]);
 
-export default AdoptPetContext;
+export default AdoptedPetContext;
