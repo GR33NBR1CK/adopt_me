@@ -22,7 +22,7 @@ const SearchParams: FC = () => {
         animal: "",
         breed: "",
     });
-    const [animal, updateAnimal] = useState<Animal>("" as Animal);
+    const [animal, updateAnimal] = useState<Animal>(ANIMALS[0]);
     const [breeds] = useBreedList(animal);
     const results = useQuery(["search", requestParams], fetchSearch);
     const [adoptedPet] = useContext(AdoptedPetContext);
