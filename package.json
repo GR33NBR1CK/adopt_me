@@ -2,7 +2,7 @@
   "name": "adopt_me",
   "version": "1.0.0",
   "description": "",
-  "main": "src/App.jsx",
+  "main": "src/App.tsx",
   "scripts": {
     "dev": "vite",
     "build": "vite buiild",
@@ -16,24 +16,26 @@
   "license": "ISC",
   "devDependencies": {
     "@tailwindcss/forms": "^0.5.3",
-    "@types/react": "^18.0.29",
+    "@types/react": "^18.2.28",
     "@types/react-dom": "^18.0.11",
+    "@typescript-eslint/eslint-plugin": "^6.7.5",
     "@vitejs/plugin-react": "^3.1.0",
     "autoprefixer": "^10.4.14",
-    "eslint": "^8.36.0",
+    "eslint": "^8.51.0",
     "eslint-config-prettier": "^8.7.0",
-    "eslint-plugin-import": "^2.27.5",
+    "eslint-import-resolver-typescript": "^3.6.1",
+    "eslint-plugin-import": "^2.28.1",
     "eslint-plugin-jsx-a11y": "^6.7.1",
-    "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-react": "^7.33.2",
     "postcss": "^8.4.21",
     "prettier": "^2.8.4",
     "react-router-dom": "^6.9.0",
     "tailwindcss": "^3.2.7",
-    "typescript": "^5.0.2",
-    "vite": "^4.1.4"
+    "typescript": "^5.2.2",
+    "vite": "^4.1.5"
   },
   "dependencies": {
-    "@tanstack/react-query": "^4.26.1",
+    "@tanstack/react-query": "^4.36.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   }
