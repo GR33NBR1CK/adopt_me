@@ -1,0 +1,262 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`renders correctly with no pets 1`] = `
+<DocumentFragment>
+  <div
+    class="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
+  >
+    <h1>
+      No pets found!
+    </h1>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`renders correctly with some pets 1`] = `
+<DocumentFragment>
+  <div
+    class="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
+  >
+    <a
+      class="pet relative block"
+      href="/details/1"
+    >
+      <div
+        class="image-container"
+      >
+        <img
+          alt="Luna"
+          data-testid="thumbnail"
+          src="http://pets-images.dev-apis.com/pets/dog25.jpg"
+        />
+      </div>
+      <div
+        class="info absolute bottom-0 left-0 bg-gradient-to-tr from-white to-transparent pr-2 pt-2"
+      >
+        <h1>
+          Luna
+        </h1>
+        <h1>
+          dog - Havanese - Seattle, WA
+        </h1>
+      </div>
+    </a>
+    <a
+      class="pet relative block"
+      href="/details/2"
+    >
+      <div
+        class="image-container"
+      >
+        <img
+          alt="Bunnahabhain"
+          data-testid="thumbnail"
+          src="http://pets-images.dev-apis.com/pets/dog31.jpg"
+        />
+      </div>
+      <div
+        class="info absolute bottom-0 left-0 bg-gradient-to-tr from-white to-transparent pr-2 pt-2"
+      >
+        <h1>
+          Bunnahabhain
+        </h1>
+        <h1>
+          dog - Goldendoodle - Minneapolis, MN
+        </h1>
+      </div>
+    </a>
+    <a
+      class="pet relative block"
+      href="/details/3"
+    >
+      <div
+        class="image-container"
+      >
+        <img
+          alt="Olive"
+          data-testid="thumbnail"
+          src="http://pets-images.dev-apis.com/pets/dog34.jpg"
+        />
+      </div>
+      <div
+        class="info absolute bottom-0 left-0 bg-gradient-to-tr from-white to-transparent pr-2 pt-2"
+      >
+        <h1>
+          Olive
+        </h1>
+        <h1>
+          dog - Boxer - Minneapolis, MN
+        </h1>
+      </div>
+    </a>
+    <a
+      class="pet relative block"
+      href="/details/4"
+    >
+      <div
+        class="image-container"
+      >
+        <img
+          alt="Sudo"
+          data-testid="thumbnail"
+          src="http://pets-images.dev-apis.com/pets/dog37.jpg"
+        />
+      </div>
+      <div
+        class="info absolute bottom-0 left-0 bg-gradient-to-tr from-white to-transparent pr-2 pt-2"
+      >
+        <h1>
+          Sudo
+        </h1>
+        <h1>
+          dog - Wheaten Terrier - Denver, CO
+        </h1>
+      </div>
+    </a>
+    <a
+      class="pet relative block"
+      href="/details/5"
+    >
+      <div
+        class="image-container"
+      >
+        <img
+          alt="Beam"
+          data-testid="thumbnail"
+          src="http://pets-images.dev-apis.com/pets/dog35.jpg"
+        />
+      </div>
+      <div
+        class="info absolute bottom-0 left-0 bg-gradient-to-tr from-white to-transparent pr-2 pt-2"
+      >
+        <h1>
+          Beam
+        </h1>
+        <h1>
+          dog - Wheaten Terrier - Denver, CO
+        </h1>
+      </div>
+    </a>
+    <a
+      class="pet relative block"
+      href="/details/6"
+    >
+      <div
+        class="image-container"
+      >
+        <img
+          alt="Gizela"
+          data-testid="thumbnail"
+          src="http://pets-images.dev-apis.com/pets/bird2.jpg"
+        />
+      </div>
+      <div
+        class="info absolute bottom-0 left-0 bg-gradient-to-tr from-white to-transparent pr-2 pt-2"
+      >
+        <h1>
+          Gizela
+        </h1>
+        <h1>
+          bird - Cockatoo - Carol Stream, IL
+        </h1>
+      </div>
+    </a>
+    <a
+      class="pet relative block"
+      href="/details/7"
+    >
+      <div
+        class="image-container"
+      >
+        <img
+          alt="Laughton"
+          data-testid="thumbnail"
+          src="http://pets-images.dev-apis.com/pets/reptile2.jpg"
+        />
+      </div>
+      <div
+        class="info absolute bottom-0 left-0 bg-gradient-to-tr from-white to-transparent pr-2 pt-2"
+      >
+        <h1>
+          Laughton
+        </h1>
+        <h1>
+          reptile - Horned Lizard - Bridgeport, CT
+        </h1>
+      </div>
+    </a>
+    <a
+      class="pet relative block"
+      href="/details/8"
+    >
+      <div
+        class="image-container"
+      >
+        <img
+          alt="Si"
+          data-testid="thumbnail"
+          src="http://pets-images.dev-apis.com/pets/dog0.jpg"
+        />
+      </div>
+      <div
+        class="info absolute bottom-0 left-0 bg-gradient-to-tr from-white to-transparent pr-2 pt-2"
+      >
+        <h1>
+          Si
+        </h1>
+        <h1>
+          dog - Shih Tzu - Charlotte, NC
+        </h1>
+      </div>
+    </a>
+    <a
+      class="pet relative block"
+      href="/details/9"
+    >
+      <div
+        class="image-container"
+      >
+        <img
+          alt="Lyda"
+          data-testid="thumbnail"
+          src="http://pets-images.dev-apis.com/pets/rabbit3.jpg"
+        />
+      </div>
+      <div
+        class="info absolute bottom-0 left-0 bg-gradient-to-tr from-white to-transparent pr-2 pt-2"
+      >
+        <h1>
+          Lyda
+        </h1>
+        <h1>
+          rabbit - American - Springfield, IL
+        </h1>
+      </div>
+    </a>
+    <a
+      class="pet relative block"
+      href="/details/10"
+    >
+      <div
+        class="image-container"
+      >
+        <img
+          alt="Jackquelin"
+          data-testid="thumbnail"
+          src="http://pets-images.dev-apis.com/pets/dog1.jpg"
+        />
+      </div>
+      <div
+        class="info absolute bottom-0 left-0 bg-gradient-to-tr from-white to-transparent pr-2 pt-2"
+      >
+        <h1>
+          Jackquelin
+        </h1>
+        <h1>
+          dog - Labrador - Tucson, AZ
+        </h1>
+      </div>
+    </a>
+  </div>
+</DocumentFragment>
+`;
