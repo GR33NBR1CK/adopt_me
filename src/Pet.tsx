@@ -11,14 +11,14 @@ interface PetProps {
 }
 
 const Pet: FC<PetProps> = ({ name, id, breed, animal, location, images }) => {
-    const hero = images.length
+    const hero = images && images.length
         ? images[0]
         : "https://pets-images.dev-apis.com/pets/none.jpg";
 
     return (
         <Link className="pet relative block" to={`/details/${id}`}>
             <div className="image-container">
-                <img src={hero} alt={name} />
+                <img src={hero} alt={name} data-testid="thumbnail" />
             </div>
             <div className="info absolute bottom-0 left-0 bg-gradient-to-tr from-white to-transparent pr-2 pt-2">
                 <h1>{name}</h1>
