@@ -17,7 +17,7 @@ class Carousel extends Component<CarouselProps> {
         }
 
         if(event.target.dataset.index) {
-        this.props.setActiveImage(+event.target.dataset.index);
+            this.props.setActiveImage(+event.target.dataset.index);
         }
 
     };
@@ -27,7 +27,7 @@ class Carousel extends Component<CarouselProps> {
 
         return (
             <div className="carousel">
-                <img src={images[active]} alt="animal" />
+                <img src={images[active]} alt="animal" data-testid="animal-hero" />
                 <div className="carousel-smaller">
                     {images.map((image, idx) => (
                         // eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-noninteractive-element-interactions
@@ -38,6 +38,7 @@ class Carousel extends Component<CarouselProps> {
                             key={image}
                             data-index={idx}
                             onClick={this.handleIndexClick}
+                            data-testid={`animal-thumbnail-${idx}`}
                         />
                     ))}
                 </div>
