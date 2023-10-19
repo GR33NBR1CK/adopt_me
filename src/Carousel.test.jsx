@@ -1,5 +1,5 @@
 import {test, expect} from "vitest"
-import Carousel from "./Carousel";
+import CarouselComponent from "./CarouselComponent";
 import {fireEvent, render} from "@testing-library/react";
 
 test("sets the hero to the clicked thumbnail", async () => {

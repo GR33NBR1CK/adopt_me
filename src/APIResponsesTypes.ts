@@ -1,6 +1,6 @@
 export type Animal = "dog" | "cat" | "bird" | "reptile" | "rabbit";
 export interface Pet {
-    activeImage?: number;
+    activeImage?: string;
     id: number;
     name: string;
     animal: Animal;

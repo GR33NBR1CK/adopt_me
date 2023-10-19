@@ -1,9 +1,9 @@
 import { createContext } from "react";
 import {Pet} from "./APIResponsesTypes";
 
-const AdoptedPetContext = createContext<[Pet | null, (adoptedPet: Pet) => void]>([
+const AdoptedPetContext = createContext<[(Pet & {activeImage: string}) | null, (adoptedPet: Pet & {activeImage: string}) => void]>([
     {
-        activeImage: 0,
+        activeImage: "",
         id: 1337,
         name: "Stefan",
         animal: "dog",

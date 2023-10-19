@@ -1,12 +1,127 @@
-import {FC, FormEvent, useContext, useState} from "react";
+import {FC, useContext, useState} from "react";
 
-import { useQuery } from "@tanstack/react-query";
+import {useQuery} from "@tanstack/react-query";
 
 import useBreedList from "./useBreedList";
 import Results from "./Results";
 import fetchSearch from "./fetchSearch";
 import AdoptedPetContext from "./AdoptedPetContext";
 import {Animal, Pet} from "./APIResponsesTypes";
+import Form from "./Form";
+import {Box, Card, CardContent, CardMedia, Container, Typography} from "@mui/material";
+import Grid from '@mui/material/Unstable_Grid2';
+import styled from "styled-components";
+
+const StyledGrid = styled(Grid)`
+  min-height: 70vh;
+  position: relative;
+  display: flex;
+  width: 100%;
+
+  form {
+    position: relative;
+    top: 50%;
+    width: 600px;
+  }
+
+  @media (max-width: 1280px) {
+    min-height: 30vh;
+    margin-top: 300px;
+    flex-direction: column;
+    align-items: center;
+
+    form {
+      width: 100%;
+    }
+  }
+
+
+`;
+
+const ImageContainer = styled.div`
+  background-image: url('./assets/5847f60fcef1014c0b5e48a2.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: bottom right;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  @media (min-width: 600px) and (max-width: 960px) {
+    background: none;
+    height: 50%;
+  }
+
+  @media (max-width: 600px) {
+    background: none;
+  }
+
+  @media (min-width: 960px) and (max-width: 1280px) {
+    background: none;
+  }
+
+  @media (min-width: 1200px) {
+    background-size: 80%;
+    background-position: bottom right;
+  }
+
+  @media (min-width: 1536px) {
+    background-size: contain;
+    background-position: bottom right;
+  }
+`;
+
+const HeroText = styled.div`
+  margin-top: 82px;
+  padding-inline: 40px;
+  position: relative;
+  left: -186px;
+
+  h2 {
+    font-weight: 900;
+    margin-bottom: 30px;
+
+  }
+
+  h4 {
+    font-weight: 700;
+  }
+
+  @media (min-width: 601px) {
+    margin-top: 100px;
+
+    h2 {
+      font-size: 80px;
+      font-weight: 900;
+      margin-bottom: 30px;
+    }
+
+    h4 {
+      font-size: 28px;
+    }
+  }
+
+  @media (max-width: 1280px) {
+    margin-top: 20px;
+    text-align: center;
+    left: 0;
+
+    h2 {
+      font-size: 60px;
+    }
+
+    h4 {
+      font-size: 24px;
+    }
+  }
+
+`;
+
+const FormBox = styled(Grid)`
+  @media (max-width: 1280px) {
+    width: 100%;
+  }
+`
 
 const ANIMALS: Animal[] = ["bird", "cat", "dog", "rabbit", "reptile"];
 
@@ -23,80 +138,61 @@ const SearchParams: FC = () => {
         breed: "",
     });
     const [animal, updateAnimal] = useState<Animal>(ANIMALS[0]);
-    const [breeds] = useBreedList(animal);
+    const [breeds, breedsStatus] = useBreedList(animal);
     const results = useQuery(["search", requestParams], fetchSearch);
     const [adoptedPet] = useContext(AdoptedPetContext);
 
     const pets: Pet[] = results?.data?.pets ?? [];
     return (
-        <div className="search-params my-0 mx-auto w-11/12">
-            <form
-                className="p-10 mb-10 rounded-lg bg-gray-200 shadow-lg flex flex-col justify-center items-center"
-                onSubmit={(event: FormEvent<HTMLFormElement>) => {
-                    event.preventDefault();
-                    const formData = new FormData(event.currentTarget);
-                    const data = {
-                        animal: formData.get("animal")?.toString() ?? "",
-                        breed: formData.get("breed")?.toString() ?? "",
-                        location: formData.get("location")?.toString() ?? "",
-                    };
-                    setRequestParams(data);
-                }}
-            >
-                {adoptedPet ? (
-                    <div className="pet image-container">
-                        <img
-                            src={adoptedPet?.images[adoptedPet.activeImage ?? 0]}
-                            alt={adoptedPet?.name}
-                        />
-                    </div>
+        <Container maxWidth="xl">
+            <StyledGrid container>
+                <FormBox>
+                    <Form
+                        setRequestParams={setRequestParams}
+                        animal={animal}
+                        updateAnimal={updateAnimal}
+                        adoptedPet={adoptedPet}
+                        breeds={breeds}
+                        breedsStatus={breedsStatus}
+                    />
+                </FormBox>
+
+                <Grid sx={{flexGrow: 1}}>
+                    <ImageContainer>
+                        <HeroText>
+                            <Typography variant="h1" component="h2">
+                                Adopt a pet.
+                            </Typography>
+                            <Typography variant="h4">
+                                {/*Provide a happy home*/}
+                            </Typography>
+                        </HeroText>
+                    </ImageContainer>
+                </Grid>
+            </StyledGrid>
+
+            {adoptedPet ? (
+                <Box sx={{display: "flex", justifyContent: "center"}}>
+                    <Card sx={{maxWidth: 500, borderRadius: 10}}>
+                    <Typography variant="h3" component="div" sx={{padding: "20px", textAlign: "center"}}>
+                        Adopted pet - {adoptedPet.name}
+                    </Typography>
+                    <CardMedia
+                        component="img"
+                        image={adoptedPet.activeImage}
+                        alt={adoptedPet?.name}
+                    />
+
+                    <CardContent>
+                        <Typography variant="h5" component="div" sx={{padding: "20px"}}>
+                            Adopted pet - {adoptedPet.description}
+                        </Typography>
+                    </CardContent>
+                </Card></Box>
                 ) : null}
-                <label htmlFor="location">Location</label>
-                <input
-                    name="location"
-                    type="text"
-                    id="location"
-                    placeholder="location"
-                />
-                <label htmlFor="animal">Animal</label>
-                <select
-                    className="search-input"
-                    id="animal"
-                    value={animal}
-                    onChange={(event) => {
-                        updateAnimal(event.target.value as Animal);
-                    }}
-                >
-                    {ANIMALS.map((animal) => (
-                        <option key={animal} value={animal}>
-                            {animal}
-                        </option>
-                    ))}
-                </select>
 
-                <label htmlFor="breed">Breed</label>
-                <select
-                    className="search-input grayed-out-disabled"
-                    id="breed"
-                    disabled={!breeds.length}
-                    name="breed"
-                >
-                    {breeds.map((breed) => (
-                        <option key={breed} value={breed}>
-                            {breed}
-                        </option>
-                    ))}
-                </select>
-                <button
-                    type="submit"
-                    className="rounded px-6 py-2 text-white hover:opacity-50 border-none bg-orange-500"
-                >
-                    Submit
-                </button>
-            </form>
-
-            <Results pets={pets} />
-        </div>
+            <Results pets={pets}/>
+        </Container>
     );
 };
 
