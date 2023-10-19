@@ -18,7 +18,8 @@ const Header = styled.header`
   box-shadow: 6px 13px 77px 6px rgba(0, 0, 0, 0.75);
   height: 100px;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
+  padding-left: 20px;
   align-items: center;
   margin-bottom: 50px;
 

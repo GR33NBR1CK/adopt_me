@@ -20,7 +20,7 @@ const StyledForm = styled(Box)`
   display: flex;
   flex-direction: column;
   gap: 20px;
-  padding: 20px;
+  padding: 45px 20px 20px;
   position: relative;
   img {
     width: 360px;
