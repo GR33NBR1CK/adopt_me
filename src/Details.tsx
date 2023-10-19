@@ -20,7 +20,7 @@ const StyledBox = styled(Box)`
   gap: 60px;
   justify-content: space-around;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
 
   @media (max-width: 1280px) {
     justify-content: center;
